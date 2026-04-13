@@ -61,6 +61,9 @@
       --mx:    1200px;      /* largura máxima do conteúdo */
       /* clamp(min, preferido, max) — padding horizontal responsivo */
       --px: clamp(1rem, 5vw, 2.5rem);
+      
+      /* Tons para alinhar hero com vídeo */
+      --video-bg: #1a1a1a;  /* fundo escuro natural para vídeo */
     }
 
    /*  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 
@@ -69,7 +72,7 @@
        ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ */
 
     [data-theme="dark"] {
-      --bg:       #080808;
+      --bg:       #000;
       --bg-mid:   #302e2e;
       --bg-light-gray:   #5e5a5e;
       --bg-max-gray:   #cfcac7;
@@ -675,17 +678,18 @@ html {
 .hero {
   position: relative;
   min-height: 100svh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: calc(var(--nav-h) + 2rem);
-  padding-bottom: 2rem;
+  padding-top: var(--nav-h);
+  padding-bottom: 0;
   padding-inline: var(--px);
   overflow: hidden;
   text-align: center;
-  background: var(--bg);                /* fundo muda: #080808 no dark, #fafafa no light */
-  color: var(--txt);                    /* texto muda: branco no dark, preto no light */
+  background: var(--bg);
+  color: var(--txt);
 }
 
 /* Garante que TODO texto dentro da hero siga o tema (títulos, subtítulo, eyebrow, scroll hint) */
@@ -712,6 +716,39 @@ html {
 [data-theme="light"] .hero::before {
   background: radial-gradient(ellipse at center, rgba(236, 72, 153, 0.25) 0%, transparent 70%);
 }
+
+    /* Grid Layout: Texto à esquerda + Vídeo à direita */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+
+    /* Coluna de texto - alinhada com o início do menu */
+    .hero-text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      z-index: 2;
+      padding-left: 0;
+    }
+
+    /* Coluna de vídeo - alinhada com o final do menu */
+    .hero-video-col {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: calc(100svh - var(--nav-h));
+      padding-right: 0;
+    }
 
     /* Wrapper do conteúdo textual */
     .hero-content {
@@ -742,13 +779,14 @@ html {
    ===================================*/
     .hero-title {
       font-family: var(--display);
-      font-size: clamp(2.8rem, 10vw, 7.5rem);
+      font-size: clamp(2.2rem, 8vw, 4.5rem);
       font-weight: 800;
       line-height: 0.92;
       letter-spacing: -.01em;
       text-transform: uppercase;
       color: var(--hero-text);
       margin-bottom: 0.4rem;
+      text-align: left;
     }
 
     /* ============================
@@ -764,6 +802,126 @@ html {
     }
 
     /* Diminui o tamanho máximo apenas em telas maiores */
+/* ═══════════════════════════════════════════════════════
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════ */
+
+/* Mobile first: Stack em coluna única, cada seção ocupa 100% da viewport */
+@media (max-width: 767px) {
+  .hero {
+    height: auto;
+    min-height: auto;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Seção do título ocupa 100% da viewport */
+  .hero-text-col {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 100svh;
+    padding: var(--nav-h) var(--px) 3rem;
+    order: 1;
+  }
+
+  .hero-title {
+    text-align: center;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.35rem;
+    padding: 4px 10px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-sub {
+    text-align: center;
+    margin: 1.5rem 0 2rem;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+  }
+
+  .hero-btns {
+    justify-content: center;
+    gap: 0.5rem;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+  }
+
+  /* Seção do vídeo ocupa 100% da viewport */
+  .hero-video-col {
+    order: 2;
+    min-height: 100svh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero-video-container {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: auto;
+    border-radius: 0;
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .scroll-hint {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+  }
+}
+
+/* Tablet: Grid 2 colunas */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-grid {
+    gap: 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+  }
+
+  .hero-video-container {
+    max-width: 350px;
+  }
+}
+
+/* Desktop: Layout otimizado */
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+  }
+
+  .hero-video-container {
+    max-width: 400px;
+  }
+}
+
 @media (min-width: 768px) {
   .hero-title {
     
@@ -781,17 +939,54 @@ html {
     .hero-sub {
       font-size: clamp(0.9rem, 2.5vw, 1.05rem);
       color: var(--txt-dim);
-      margin: 1.2rem auto 2rem;
+      margin: 1.2rem 0 2rem;
       max-width: 460px;
+      text-align: left;
     }
+
+    /* ── VIDEO HERO ────────────────────────────────────────── */
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 9 / 16;
+      max-width: 400px;
+      max-height: calc(100svh - var(--nav-h));
+      border-radius: 0;
+      overflow: hidden;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      animation: fadeInScale 0.8s var(--eout);
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* ──────────────────────────────────────────────────────── */
 
     /* Botões CTA do hero */
     .hero-btns {
       display: flex;
-      flex-wrap: wrap; /* quebra em mobile */
+      flex-wrap: wrap;
       gap: 0.75rem;
-      justify-content: center;
-      margin-bottom: 2.5rem;
+      justify-content: flex-start;
+      margin-bottom: 0;
     }
 
     /* Botão rosa sólido */
@@ -855,10 +1050,18 @@ html {
     Indicador de scroll "ROLE PARA BAIXO"
     ======================================= */
     .scroll-hint {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 8px;
-      font-size: 0.65rem; font-weight: 600;
-      letter-spacing: .22em; text-transform: uppercase;
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
       color: var(--txt-dim);
       animation: bounce 2s ease-in-out infinite;
     }
@@ -866,7 +1069,8 @@ html {
     .scroll-hint::after {
       content: '';
       display: block;
-      width: 1px; height: 40px;
+      width: 1px;
+      height: 40px;
       background: linear-gradient(to bottom, var(--pink), transparent);
     }
 
@@ -971,6 +1175,11 @@ html {
 ═══════════════════════════════════════ */
 #about {
   background: var(--bg-mid);
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--nav-h) var(--px) 3rem;
 }
 
 /* Grid: mobile = coluna única / desktop = foto + texto lado a lado */
