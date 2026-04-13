@@ -41,6 +41,7 @@
   <!-- ── ÍCONES Font Awesome ──────────────────────────────── -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+
    <!-- ═══ CSS ═══ -->
     <link rel="stylesheet" href="./css/style.css" media="print" onload="this.media = 'all'"/>
   </head>
@@ -278,7 +279,7 @@
       <!-- Conteúdo em Grid: Texto à esquerda + Vídeo à direita -->
       <div class="hero-grid">
         
-        <!-- COLUNA 1: Texto -->
+        <!-- COLUNA 1: Texto (título + subtítulo) -->
         <div class="hero-text-col">
           <!-- Tag / badge topo -->
           <span class="hero-eyebrow" data-pt="Conteúdo Exclusivo" data-en="Exclusive Content" data-es="Contenido Exclusivo">
@@ -287,47 +288,9 @@
 
           <!-- Título principal: grande, bold, display -->
           <h1 class="hero-title" id="heroTitle">
-            <span data-pt="DESCUBRA A MELHOR" data-en="DISCOVER THE BEST" data-es="DESCUBRE LA MEJOR">
-              DESCUBRA A MELHOR
-            </span><br>
-            <span data-pt="FORMA DE ACESSAR" data-en="WAY TO ACCESS" data-es="FORMA DE ACCEDER">
-              FORMA DE ACESSAR
-            </span><br>
-            <span data-pt="MEU CONTEÚDO" data-en="MY CONTENT" data-es="MI CONTENIDO">
-              MEU CONTEÚDO
-            </span><br>
-            <span class="pink" data-pt="EXCLUSIVO" data-en="EXCLUSIVELY" data-es="EXCLUSIVO">
-              EXCLUSIVO
-            </span>
+            <span data-pt="CONTEÚDO" data-en="CONTENT" data-es="CONTENIDO">CONTEÚDO </span><span data-pt="EXCLUSIVO" data-en="EXCLUSIVE" data-es="EXCLUSIVO">EXCLUSIVO </span><span class="pink" data-pt="PARA VOCÊ" data-en="FOR YOU" data-es="PARA TI">PARA VOCÊ</span>
           </h1>
 
-          <!-- Subtítulo -->
-          <p class="hero-sub"
-             data-pt="Acesse todas as minhas plataformas e conteúdos em um único lugar."
-             data-en="Access all my platforms and content in one place."
-             data-es="Accede a todas mis plataformas y contenidos en un solo lugar.">
-            Acesse todas as minhas plataformas e conteúdos em um único lugar.
-          </p>
-
-          <!-- Botões de ação -->
-          <div class="hero-btns">
-            <a
-              href="galleria.html"
-              class="btn-primary"
-              aria-label="Ver galeria de fotos"
-            >
-              <i class="fas fa-play" aria-hidden="true"></i>
-              <span data-pt="Explore a Galeria" data-en="Explore Gallery" data-es="Ver Galería">Explore a Galeria</span>
-            </a>
-            <a
-              href="links-oficiais.html"
-              class="btn-outline"
-              aria-label="Ver links oficiais"
-            >
-              <span data-pt="Links Oficiais" data-en="Official Links" data-es="Links Oficiales">Links Oficiais</span>
-              <i class="fas fa-arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
         </div>
 
         <!-- COLUNA 2: Vídeo -->
@@ -348,6 +311,26 @@
           </div>
         </div>
 
+        <!-- SUBTÍTULO + BOTÕES — order: 3 no mobile (abaixo do vídeo) -->
+        <div class="hero-bottom">
+          <p class="hero-sub"
+             data-pt="Acesse todas as minhas plataformas e conteúdos em um único lugar."
+             data-en="Access all my platforms and content in one place."
+             data-es="Accede a todas mis plataformas y contenidos en un solo lugar.">
+            Acesse todas as minhas plataformas e conteúdos em um único lugar.
+          </p>
+          <div class="hero-btns">
+            <a href="galleria.html" class="btn-primary" aria-label="Ver galeria de fotos">
+              <i class="fas fa-play" aria-hidden="true"></i>
+              <span data-pt="Explore a Galeria" data-en="Explore Gallery" data-es="Ver Galería">Explore a Galeria</span>
+            </a>
+            <a href="links-oficiais.html" class="btn-outline" aria-label="Ver links oficiais">
+              <span data-pt="Links Oficiais" data-en="Official Links" data-es="Links Oficiales">Links Oficiais</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
       </div>
 
       <!-- Indicador de scroll -->
@@ -358,39 +341,31 @@
 
 
 <section id="about" aria-labelledby="aboutTitle">
-  <div class="container section-wrap">
+  <div class="about-wrap">
 
-    <!-- CABEÇALHO DA SECTION -->
-    <div class="section-header">
-      <span class="section-tag"
-            data-pt="👤 Quem Sou Eu"
-            data-en="👤 Who I Am"
-            data-es="👤 Quién Soy">
-        👤 Quem Sou Eu
-      </span>
-      <h2 class="section-title" id="aboutTitle" data-reveal>
-        SOBRE <span class="accent">MIM</span>
-      </h2>
-      <p class="section-sub" data-reveal>Criadora de conteúdo · Recife, PE</p>
+    <!-- FOTO NO TOPO — larga, dedinho apontando para baixo -->
+    <div class="about-photo-hero">
+      <img
+        class="about-photo-img"
+        src="./img/pics/sobre-mim-pic.PNG"
+        alt="Vanessa Rafaella sorrindo e apontando para baixo"
+        loading="lazy"
+      >
     </div>
 
-    <!-- GRID: FOTO + TEXTO -->
-    <div class="about-grid" data-reveal>
+    <!-- CONTEÚDO ABAIXO DA FOTO -->
+    <div class="container about-content">
 
-      <!-- FOTO -->
-      <div class="about-photo-wrap">
-        <img
-          class="about-photo"
-          src="./img/pics/vanessa-rafaella-logo-nav-primary.svg"
-          alt="Vanessa Rafaella"
-          width="300" height="300"
-          loading="lazy"
-          onerror="this.src='https://placehold.co/300x300/141419/FF2D8B?text=VR'"
-        >
+      <!-- Cabeçalho -->
+      <div class="section-header">
+        <h2 class="section-title" id="aboutTitle" data-reveal>
+          SOBRE <span class="accent">MIM</span>
+        </h2>
+        <p class="section-sub" data-reveal>Criadora de conteúdo · Recife, PE</p>
       </div>
 
-      <!-- TEXTO + STATS -->
-      <div class="about-text">
+      <!-- Texto + Stats -->
+      <div class="about-text" data-reveal>
         <p data-pt="Olá! Sou a Vanessa Rafaella, criadora de conteúdo digital de Recife, PE. Aqui você encontra os meus links oficiais e tem acesso a todo o meu conteúdo exclusivo."
            data-en="Hi! I'm Vanessa Rafaella, a digital content creator from Recife, PE. Here you'll find my official links and all my exclusive content."
            data-es="¡Hola! Soy Vanessa Rafaella, creadora de contenido digital de Recife, PE. Aquí encontrarás mis links oficiales y todo mi contenido exclusivo.">
@@ -510,5 +485,123 @@
   </div>
 </section>
   <script src="./js/script.js" defer></script>
+
+  <!-- ♥ CORAÇÃO NEON — Canvas 2D, sem dependências externas ♥ -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Canvas fixo sobre toda a página ── */
+    const cv = document.createElement('canvas');
+    cv.setAttribute('aria-hidden', 'true');
+    cv.style.cssText =
+      'position:fixed;top:0;left:0;width:100%;height:100%;' +
+      'pointer-events:none;z-index:9500;';
+    document.body.appendChild(cv);
+    const ctx = cv.getContext('2d');
+
+    let W, H;
+    function resize() {
+      W = cv.width  = window.innerWidth;
+      H = cv.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    /* ── Rastro: posições anteriores ── */
+    const trail = [];
+    const MAX_TRAIL = 60;
+
+    /* ── Forma do coração (centralizado na origem do ctx) ── */
+    function heartPath(s) {
+      ctx.beginPath();
+      ctx.moveTo(0, s * 0.9);                                              /* ponta inferior  */
+      ctx.bezierCurveTo(-s * 0.9,  s * 0.40, -s * 1.1, -s * 0.20, -s * 0.5, -s * 0.50); /* esq baixo */
+      ctx.bezierCurveTo(-s * 0.20, -s * 0.85,  0,        -s * 0.60,  0,        -s * 0.35); /* esq topo  */
+      ctx.bezierCurveTo( 0,        -s * 0.60,  s * 0.20, -s * 0.85,  s * 0.5,  -s * 0.50); /* dir topo  */
+      ctx.bezierCurveTo( s * 1.1,  -s * 0.20,  s * 0.9,   s * 0.40,  0,         s * 0.90); /* dir baixo */
+      ctx.closePath();
+    }
+
+    const PINK = '#FF2D8B';
+    let   frame = 0;
+
+    function tick() {
+      requestAnimationFrame(tick);
+      frame++;
+
+      /* Progresso de scroll 0→1 */
+      const scrollMax = Math.max(1, document.documentElement.scrollHeight - H);
+      const prog = Math.min(window.scrollY / scrollMax, 1);
+
+      /* Y: desce junto com o scroll + flutuação suave */
+      const pad  = 80;
+      const y = (pad + prog * (H - pad * 2)) + Math.sin(frame * 0.045) * 14;
+
+      /* X: oscila da margem esquerda à direita (zigzag) */
+      const amp  = W * 0.42;
+      const x = W / 2 + Math.sin(frame * 0.022) * amp;
+
+      /* Acumula rastro */
+      trail.push({ x, y });
+      if (trail.length > MAX_TRAIL) trail.shift();
+
+      /* Limpa frame */
+      ctx.clearRect(0, 0, W, H);
+
+      /* ─── Rastro: bolinhas que desvanecem ─── */
+      const tLen = trail.length;
+      for (let i = 0; i < tLen; i++) {
+        const p = trail[i];
+        const t = i / tLen;           /* 0 = mais antigo, 1 = mais recente */
+        ctx.save();
+        ctx.globalAlpha  = t * t * 0.55;
+        ctx.shadowBlur   = 10;
+        ctx.shadowColor  = PINK;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, t * 5.5 + 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = PINK;
+        ctx.fill();
+        ctx.restore();
+      }
+
+      /* ─── Coração neon (4 camadas = profundidade do glow) ─── */
+      ctx.save();
+      ctx.translate(x, y);
+      const S = 12; /* tamanho base */
+
+      /* Camada 1 — glow externo amplo */
+      ctx.save();
+      ctx.shadowBlur = 32; ctx.shadowColor = PINK;
+      ctx.globalAlpha = 0.30;
+      heartPath(S); ctx.fillStyle = PINK; ctx.fill();
+      ctx.restore();
+
+      /* Camada 2 — glow médio */
+      ctx.save();
+      ctx.shadowBlur = 16; ctx.shadowColor = PINK;
+      ctx.globalAlpha = 0.60;
+      heartPath(S); ctx.fillStyle = PINK; ctx.fill();
+      ctx.restore();
+
+      /* Camada 3 — núcleo sólido */
+      ctx.save();
+      ctx.shadowBlur = 5; ctx.shadowColor = '#fff';
+      ctx.globalAlpha = 1.0;
+      heartPath(S); ctx.fillStyle = PINK; ctx.fill();
+      ctx.restore();
+
+      /* Camada 4 — reflexo branco interno (brilho neon) */
+      ctx.save();
+      ctx.globalAlpha = 0.50;
+      heartPath(S * 0.42); ctx.fillStyle = '#ffffff'; ctx.fill();
+      ctx.restore();
+
+      ctx.restore(); /* restaura translate */
+    }
+
+    tick();
+  })();
+  </script>
 </body>
 </html>
