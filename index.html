@@ -275,61 +275,84 @@
 
 
 
-      <!-- Conteúdo textual do hero -->
-      <div class="hero-content">
-        <!-- Tag / badge topo -->
-        <span class="hero-eyebrow" data-pt="Conteúdo Exclusivo" data-en="Exclusive Content" data-es="Contenido Exclusivo">
-          Conteúdo Exclusivo
-        </span>
-
-        <!-- Título principal: grande, bold, display -->
-        <h1 class="hero-title" id="heroTitle">
-          <span data-pt="DESCUBRA A MELHOR" data-en="DISCOVER THE BEST" data-es="DESCUBRE LA MEJOR">
-            DESCUBRA A MELHOR
-          </span><br>
-          <span data-pt="FORMA DE ACESSAR" data-en="WAY TO ACCESS" data-es="FORMA DE ACCEDER">
-            FORMA DE ACESSAR
-          </span><br>
-          <span data-pt="MEU CONTEÚDO" data-en="MY CONTENT" data-es="MI CONTENIDO">
-            MEU CONTEÚDO
-          </span><br>
-          <span class="pink" data-pt="EXCLUSIVO" data-en="EXCLUSIVELY" data-es="EXCLUSIVO">
-            EXCLUSIVO
+      <!-- Conteúdo em Grid: Texto à esquerda + Vídeo à direita -->
+      <div class="hero-grid">
+        
+        <!-- COLUNA 1: Texto -->
+        <div class="hero-text-col">
+          <!-- Tag / badge topo -->
+          <span class="hero-eyebrow" data-pt="Conteúdo Exclusivo" data-en="Exclusive Content" data-es="Contenido Exclusivo">
+            Conteúdo Exclusivo
           </span>
-        </h1>
 
-        <!-- Subtítulo -->
-        <p class="hero-sub"
-           data-pt="Acesse todas as minhas plataformas e conteúdos em um único lugar."
-           data-en="Access all my platforms and content in one place."
-           data-es="Accede a todas mis plataformas y contenidos en un solo lugar.">
-          Acesse todas as minhas plataformas e conteúdos em um único lugar.
-        </p>
+          <!-- Título principal: grande, bold, display -->
+          <h1 class="hero-title" id="heroTitle">
+            <span data-pt="DESCUBRA A MELHOR" data-en="DISCOVER THE BEST" data-es="DESCUBRE LA MEJOR">
+              DESCUBRA A MELHOR
+            </span><br>
+            <span data-pt="FORMA DE ACESSAR" data-en="WAY TO ACCESS" data-es="FORMA DE ACCEDER">
+              FORMA DE ACESSAR
+            </span><br>
+            <span data-pt="MEU CONTEÚDO" data-en="MY CONTENT" data-es="MI CONTENIDO">
+              MEU CONTEÚDO
+            </span><br>
+            <span class="pink" data-pt="EXCLUSIVO" data-en="EXCLUSIVELY" data-es="EXCLUSIVO">
+              EXCLUSIVO
+            </span>
+          </h1>
 
-        <!-- Botões de ação -->
-        <div class="hero-btns">
-          <a
-            href="galleria.html"
-            class="btn-primary"
-            aria-label="Ver galeria de fotos"
-          >
-            <i class="fas fa-play" aria-hidden="true"></i>
-            <span data-pt="Explore a Galeria" data-en="Explore Gallery" data-es="Ver Galería">Explore a Galeria</span>
-          </a>
-          <a
-            href="links-oficiais.html"
-            class="btn-outline"
-            aria-label="Ver links oficiais"
-          >
-            <span data-pt="Links Oficiais" data-en="Official Links" data-es="Links Oficiales">Links Oficiais</span>
-            <i class="fas fa-arrow-right" aria-hidden="true"></i>
-          </a>
+          <!-- Subtítulo -->
+          <p class="hero-sub"
+             data-pt="Acesse todas as minhas plataformas e conteúdos em um único lugar."
+             data-en="Access all my platforms and content in one place."
+             data-es="Accede a todas mis plataformas y contenidos en un solo lugar.">
+            Acesse todas as minhas plataformas e conteúdos em um único lugar.
+          </p>
+
+          <!-- Botões de ação -->
+          <div class="hero-btns">
+            <a
+              href="galleria.html"
+              class="btn-primary"
+              aria-label="Ver galeria de fotos"
+            >
+              <i class="fas fa-play" aria-hidden="true"></i>
+              <span data-pt="Explore a Galeria" data-en="Explore Gallery" data-es="Ver Galería">Explore a Galeria</span>
+            </a>
+            <a
+              href="links-oficiais.html"
+              class="btn-outline"
+              aria-label="Ver links oficiais"
+            >
+              <span data-pt="Links Oficiais" data-en="Official Links" data-es="Links Oficiales">Links Oficiais</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
 
-        <!-- Indicador de scroll -->
-        <div class="scroll-hint" aria-hidden="true">
-          <span data-pt="Role para baixo" data-en="Scroll down" data-es="Desliza hacia abajo">Role para baixo</span>
+        <!-- COLUNA 2: Vídeo -->
+        <div class="hero-video-col">
+          <div class="hero-video-container">
+            <video
+              class="hero-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Vídeo de apresentação Vanessa Rafaella"
+            >
+              <source src="./video/video-oncinha.mp4" type="video/mp4">
+              Seu navegador não suporta o elemento vídeo.
+            </video>
+          </div>
         </div>
+
+      </div>
+
+      <!-- Indicador de scroll -->
+      <div class="scroll-hint" aria-hidden="true">
+        <span data-pt="Role para baixo" data-en="Scroll down" data-es="Desliza hacia abajo">Role para baixo</span>
       </div>
     </section>
 
